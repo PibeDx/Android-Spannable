@@ -1,7 +1,9 @@
 package com.josecuentas.android_spannable.lib;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.ColorRes;
+import android.support.annotation.RequiresApi;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 
@@ -44,6 +46,28 @@ public class SpanDecorationBuild {
         mSpannableStringBuilder.append(spannable);
         return this;
     }
+
+    public SpanDecorationBuild append(CharSequence text) {
+        mSpannableStringBuilder.append(text);
+        return this;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public SpanDecorationBuild append(CharSequence text, Object what, int flags) {
+        mSpannableStringBuilder.append(text, what, flags);
+        return this;
+    }
+
+    public SpanDecorationBuild append(CharSequence text, int start, int end) {
+        mSpannableStringBuilder.append(text, start, end);
+        return this;
+    }
+
+    public SpanDecorationBuild append(char text) {
+        mSpannableStringBuilder.append(text);
+        return this;
+    }
+
 
     public SpannableStringBuilder builder() {
         return mSpannableStringBuilder;
